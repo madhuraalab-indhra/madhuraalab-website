@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="ta" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhuraa Diagnostics | மதுரா இரத்த பரிசோதனை நிலையம் - Rajapalayam & Sivagiri</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0d4b75',
+                            darkblue: '#082d47',
+                            green: '#2e7d32',
+                            lightgreen: '#81c784',
+                            accent: '#f59e0b',
+                            bg: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-family/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans Tamil', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen relative pb-16 md:pb-0">
+
+    <!-- TOP ANNOUNCEMENT BAR (Dr. Lal PathLabs Style) -->
+    <div class="bg-brand-darkblue text-white text-xs md:text-sm py-2 px-4 shadow-sm border-b border-blue-900/50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-3 flex-wrap justify-center md:justify-start">
+                <span class="bg-amber-500 text-slate-900 font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider animate-pulse">
+                    <i class="fa-solid fa-bullhorn mr-1"></i> Special Offer
+                </span>
+                <span data-en="Home Sample Collection Available in Rajapalayam & Sivagiri (+ Rural Mobile Unit)" 
+                      data-ta="இராஜபாளையம் மற்றும் சிவகிரியில் வீட்டிற்கே வந்து மாதிரி சேகரிக்கப்படும் (+ கிராமப்புற சேவை)">
+                    இராஜபாளையம் மற்றும் சிவகிரியில் வீட்டிற்கே வந்து மாதிரி சேகரிக்கப்படும் (+ கிராமப்புற சேவை)
+                </span>
+            </div>
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="tel:04636290648" class="hover:text-amber-400 transition flex items-center gap-1">
+                    <i class="fa-solid fa-phone text-amber-400"></i> 04636-290648
+                </a>
+                <a href="https://wa.me/919342627757" target="_blank" class="hover:text-green-400 transition flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-green-400 text-sm"></i> 93426 27757
+                </a>
+                <!-- LANGUAGE SWITCHER BUTTON -->
+                <button onclick="toggleLanguage()" id="langBtn" class="bg-brand-green hover:bg-emerald-600 text-white px-2.5 py-1 rounded text-xs font-bold transition flex items-center gap-1 border border-green-400">
+                    <i class="fa-solid fa-language"></i> <span id="langText">English</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER & NAVIGATION (Pathkind Style) -->
+    <header class="sticky top-0 z-40 glass-header border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- LOGO AREA -->
+            <a href="javascript:void(0)" onclick="switchTab('home')" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 bg-white rounded-full p-1 shadow-md border border-slate-100 flex items-center justify-center group-hover:scale-105 transition">
+                    <!-- High quality SVG Diagnostic Logo Representation -->
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#81c784" stroke-width="6"/>
+                        <path d="M30 65 Q 50 20 70 65 Q 50 45 30 65 Z" fill="#0d4b75"/>
+                        <circle cx="50" cy="35" r="8" fill="#f59e0b"/>
+                        <path d="M25 50 H 75" stroke="#2e7d32" stroke-width="4" stroke-dasharray="2 2"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="block font-extrabold text-xl md:text-2xl text-brand-darkblue tracking-tight leading-none">
+                        MADHURAA <span class="text-brand-green">DIAGNOSTICS</span>
+                    </span>
+                    <span class="block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mt-0.5" 
+                          data-en="A Clinical Laboratory & Mobile Sample Collection Hub" 
+                          data-ta="மதுரா இரத்த பரிசோதனை நிலையம் & மாதிரி சேகரிப்பு மையம்">
+                        மதுரா இரத்த பரிசோதனை நிலையம் & மாதிரி சேகரிப்பு மையம்
+                    </span>
+                </div>
+            </a>
+
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="hidden lg:flex items-center gap-1 font-semibold text-sm">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-link text-brand-blue bg-blue-50 px-3.5 py-2 rounded-lg transition">
+                    <i class="fa-solid fa-house mr-1.5"></i> <span data-en="Home" data-ta="முகப்பு">முகப்பு</span>
+                </button>
+                <button onclick="switchTab('tests')" id="nav-tests" class="nav-link text-slate-600 hover:text-brand-blue hover:bg-slate-100 px-3.5 py-2 rounded-lg transition">
+                    <i class="fa-solid fa-vial-virus mr-1.5"></i> <span data-en="All Tests & Rates" data-ta="பரிசோதனை கட்டணம்">பரிசோதனை கட்டணம்</span>
+                </button>
+                <button onclick="switchTab('packages')" id="nav-packages" class="nav-link text-slate-600 hover:text-brand-blue hover:bg-slate-100 px-3.5 py-2 rounded-lg transition">
+                    <i class="fa-solid fa-heart-pulse mr-1.5"></i> <span data-en="NCD Care & Packages" data-ta="சிறப்பு பேக்கேஜ்கள்">சிறப்பு பேக்கேஜ்கள்</span>
+                </button>
+                <button onclick="switchTab('prescription')" id="nav-prescription" class="nav-link text-slate-600 hover:text-brand-blue hover:bg-slate-100 px-3.5 py-2 rounded-lg transition">
+                    <i class="fa-solid fa-file-prescription mr-1.5"></i> <span data-en="Upload Prescription" data-ta="சீட் அப்லோட்">சீட் அப்லோட்</span>
+                </button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-link text-slate-600 hover:text-brand-blue hover:bg-slate-100 px-3.5 py-2 rounded-lg transition">
+                    <i class="fa-solid fa-handshake mr-1.5"></i> <span data-en="Contact & B2B Partner" data-ta="தொடர்பு & B2B">தொடர்பு & B2B</span>
+                </button>
+            </nav>
+
+            <!-- CALL TO ACTION BUTTON -->
+            <div class="hidden sm:flex items-center gap-2">
+                <a href="https://wa.me/919342627757?text=Hi%20Madhuraa%20Lab,%20I%20want%20to%20book%20a%20Home%20Sample%20Collection." target="_blank" 
+                   class="bg-brand-green hover:bg-emerald-700 text-white font-bold text-xs md:text-sm px-4 py-2.5 rounded-lg shadow hover:shadow-md transition flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span data-en="Book Home Pickup" data-ta="வீட்டு மாதிரி சேகரிப்பு">வீட்டு மாதிரி சேகரிப்பு</span>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- MOBILE BOTTOM NAVIGATION BAR -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 lg:hidden flex justify-around items-center py-2 shadow-lg">
+        <button onclick="switchTab('home')" class="flex flex-col items-center text-xs font-medium text-brand-blue">
+            <i class="fa-solid fa-house text-base mb-0.5"></i>
+            <span data-en="Home" data-ta="முகப்பு">முகப்பு</span>
+        </button>
+        <button onclick="switchTab('tests')" class="flex flex-col items-center text-xs font-medium text-slate-500 hover:text-brand-blue">
+            <i class="fa-solid fa-vial text-base mb-0.5"></i>
+            <span data-en="Tests" data-ta="டெஸ்ட்டுகள்">டெஸ்ட்டுகள்</span>
+        </button>
+        <button onclick="switchTab('packages')" class="flex flex-col items-center text-xs font-medium text-slate-500 hover:text-brand-blue">
+            <i class="fa-solid fa-kit-medical text-base mb-0.5"></i>
+            <span data-en="Packages" data-ta="பேக்கேஜ்">பேக்கேஜ்</span>
+        </button>
+        <button onclick="switchTab('prescription')" class="flex flex-col items-center text-xs font-medium text-slate-500 hover:text-brand-blue">
+            <i class="fa-solid fa-file-prescription text-base mb-0.5"></i>
+            <span data-en="Upload" data-ta="அப்லோட்">அப்லோட்</span>
+        </button>
+        <button onclick="switchTab('contact')" class="flex flex-col items-center text-xs font-medium text-slate-500 hover:text-brand-blue">
+            <i class="fa-solid fa-location-dot text-base mb-0.5"></i>
+            <span data-en="Contact" data-ta="தொடர்பு">தொடர்பு</span>
+        </button>
+    </div>
+
+    <!-- MAIN BODY CONTENT CONTAINER -->
+    <main class="flex-grow">
+
+        <!-- ================= PAGE 1: HOME PAGE ================= -->
+        <div id="page-home" class="tab-content active">
+            
+            <!-- HERO SECTION WITH HIGH QUALITY MEDICAL VISUALS -->
+            <section class="relative bg-gradient-to-r from-brand-darkblue via-brand-blue to-cyan-900 text-white overflow-hidden py-12 lg:py-16">
+                <!-- Background decorative overlay -->
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                
+                <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 bg-blue-900/80 border border-blue-400/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-amber-300 shadow-inner">
+                            <i class="fa-solid fa-shield-halved text-amber-400"></i>
+                            <span data-en="Trusted Regional Laboratory • Rajapalayam & Sivagiri Hubs"
+                                  data-ta="நம்பகமான பிராந்திய பரிசோதனை மையம் • இராஜபாளையம் & சிவகிரி">
+                                நம்பகமான பிராந்திய பரிசோதனை மையம் • இராஜபாளையம் & சிவகிரி
+                            </span>
+                        </div>
+
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                            <span data-en="Accurate Lab Reports." data-ta="துல்லியமான முடிவுகள்.">துல்லியமான முடிவுகள்.</span><br>
+                            <span class="text-amber-400" data-en="Doorstep Sample Collection." data-ta="வீடே தேடி வரும் சேவை.">வீடே தேடி வரும் சேவை.</span>
+                        </h1>
+
+                        <p class="text-slate-200 text-sm md:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                           data-en="Fast, affordable, and high-precision blood tests, lipid profiles, thyroid, and NCD health checkups across Rajapalayam, Sivagiri, Rayagiri & surrounding rural areas."
+                           data-ta="இராஜபாளையம், சிவகிரி, ராயகிரி மற்றும் சுற்றியுள்ள கிராமங்களுக்கு குறைந்த விலையில் துல்லியமான இரத்தப் பரிசோதனைகள் மற்றும் மாதிரி சேகரிப்பு சேவை.">
+                            இராஜபாளையம், சிவகிரி, ராயகிரி மற்றும் சுற்றியுள்ள கிராமங்களுக்கு குறைந்த விலையில் துல்லியமான இரத்தப் பரிசோதனைகள் மற்றும் மாதிரி சேகரிப்பு சேவை.
+                        </p>
+
+                        <!-- QUICK SEARCH HERO BAR -->
+                        <div class="bg-white p-2 md:p-3 rounded-xl shadow-xl max-w-xl mx-auto lg:mx-0 flex flex-col sm:flex-row gap-2 border-2 border-amber-400/80">
+                            <div class="flex-grow flex items-center px-3 text-slate-700">
+                                <i class="fa-solid fa-magnifying-glass text-brand-blue text-lg mr-2"></i>
+                                <input type="text" id="heroSearchInput" 
+                                       placeholder="Search test (e.g., LFT, Sugar, Thyroid, CBC)..." 
+                                       class="w-full focus:outline-none text-slate-800 text-sm py-2 font-medium"
+                                       onkeyup="if(event.key === 'Enter') searchFromHero()">
+                            </div>
+                            <button onclick="searchFromHero()" class="bg-brand-green hover:bg-emerald-700 text-white font-bold text-sm px-6 py-2.5 rounded-lg transition shadow flex items-center justify-center gap-1.5">
+                                <span data-en="Search Test" data-ta="தேடுக">தேடுக</span>
+                            </button>
+                        </div>
+
+                        <!-- PRIORITY SERVICES HIGHLIGHT BADGES -->
+                        <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4 text-xs font-semibold text-slate-200">
+                            <span class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-md border border-white/10">
+                                <i class="fa-solid fa-person-cane text-amber-300"></i>
+                                <span data-en="Priority for Elderly" data-ta="முதியோருக்கு முன்னுரிமை">முதியோருக்கு முன்னுரிமை</span>
+                            </span>
+                            <span class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-md border border-white/10">
+                                <i class="fa-solid fa-person-pregnant text-pink-300"></i>
+                                <span data-en="Pregnant Women Care" data-ta="கர்ப்பிணிகளுக்கு சிறப்பு சேவை">கர்ப்பிணிகளுக்கு சிறப்பு சேவை</span>
+                            </span>
+                            <span class="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-md border border-white/10">
+                                <i class="fa-solid fa-truck-medical text-green-300"></i>
+                                <span data-en="Rural Mobile Unit" data-ta="கிராமப்புற மொபைல் யூனிட்">கிராமப்புற மொபைல் யூனிட்</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- HERO VISUAL / BANNER -->
+                    <div class="lg:col-span-5 relative flex justify-center">
+                        <div class="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Medical Diagnostic Technologist" 
+                                 class="w-full h-80 lg:h-96 object-cover transform hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                                <span class="bg-brand-green text-white text-[10px] font-bold px-2 py-0.5 rounded w-max uppercase mb-1">High Accuracy</span>
+                                <p class="font-bold text-sm" data-en="Advanced Automated Chemistry & Hematology" data-ta="நவீன தானியங்கி இரத்தப் பரிசோதனை">நவீன தானியங்கி இரத்தப் பரிசோதனை</p>
+                                <p class="text-xs text-slate-300" data-en="Sample pickup directly from your doorstep" data-ta="உங்கள் வீடே தேடி வந்து மாதிரி எடுக்கப்படும்">உங்கள் வீடே தேடி வந்து மாதிரி எடுக்கப்படும்</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- BROCHURE SPECIAL DISCOUNTS & OFFERS STRIP -->
+            <section class="bg-amber-50 border-y border-amber-200 py-6">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-4">
+                        <h2 class="text-xl md:text-2xl font-extrabold text-brand-darkblue" 
+                            data-en="Special Offers & Festival Discount Packages" 
+                            data-ta="சிறப்பு தள்ளுபடி சலுகைகள் & முழு உடல் பரிசோதனைகள்">
+                            சிறப்பு தள்ளுபடி சலுகைகள் & முழு உடல் பரிசோதனைகள்
+                        </h2>
+                        <p class="text-xs md:text-sm text-slate-600 font-medium mt-1"
+                           data-en="High-value comprehensive checkups at direct regional prices"
+                           data-ta="குறைந்த கட்டணத்தில் நிறைந்த பரிசோதனைகள் - மதுரா லேப்ஸ் சிறப்பு சலுகை">
+                            குறைந்த கட்டணத்தில் நிறைந்த பரிசோதனைகள் - மதுரா லேப்ஸ் சிறப்பு சலுகை
+                        </p>
+                    </div>
+
+                    <!-- OFFERS CARDS GRID -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        
+                        <!-- CARD 1 -->
+                        <div class="bg-white rounded-xl p-4 border border-amber-200 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-bl">50% OFF</div>
+                            <div>
+                                <h3 class="font-bold text-brand-blue text-base">Madhuraa Mini Checkup</h3>
+                                <p class="text-xs text-slate-500 font-semibold mb-2">8 Tests Included</p>
+                                <ul class="text-xs text-slate-600 space-y-1 mb-3">
+                                    <li><i class="fa-solid fa-check text-green-600 mr-1"></i> Blood Sugar (F/PP) - 2</li>
+                                    <li><i class="fa-solid fa-check text-green-600 mr-1"></i> Kidney (Urea, Creat, BUN) - 3</li>
+                                    <li><i class="fa-solid fa-check text-green-600 mr-1"></i> Total Cholesterol - 1</li>
+                                    <li><i class="fa-solid fa-check text-green-600 mr-1"></i> Urine Routine - 2</li>
+                                </ul>
+                            </div>
+                            <div class="pt-2 border-t border-slate-100 flex justify-between items-end">
+                                <div>
+                                    <span class="line-through text-slate-400 text-xs">₹600</span>
+                                    <span class="text-xl font-extrabold text-brand-green ml-1">₹300</span>
+                                </div>
+                                <button onclick="bookSpecificPackage('Madhuraa Mini Checkup (8 Tests) - ₹300')" class="bg-brand-blue text-white text-xs font-bold px-3 py-1.5 rounded hover:bg-slate-800 transition">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CARD 2 -->
+                        <div class="bg-white rounded-xl p-4 border border-amber-200 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-bl">50% OFF</div>
+                            <div>
+                                <h3 class="font-bold text-brand-blue text-base">Mini Checkup Plus</h3>
+                                <p class="text-xs text-slate-500 font-semibold mb-2">29 Tests Included</p>
+                                <p class="text-xs text-slate-600 mb-3">Includes <b>Mini Checkup (8 Tests)</b> + <b>Complete Blood Count CBC (21 Tests)</b></p>
+                            </div>
+                            <div class="pt-2 border-t border-slate-100 flex justify-between items-end">
+                                <div>
+                                    <span class="line-through text-slate-400 text-xs">₹1,000</span>
+                                    <span class="text-xl font-extrabold text-brand-green ml-1">₹500</span>
+                                </div>
+                                <button onclick="bookSpecificPackage('Madhuraa Mini Checkup Plus (29 Tests) - ₹500')" class="bg-brand-blue text-white text-xs font-bold px-3 py-1.5 rounded hover:bg-slate-800 transition">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CARD 3 -->
+                        <div class="bg-white rounded-xl p-4 border border-amber-300 shadow-md hover:shadow-lg transition flex flex-col justify-between relative overflow-hidden ring-2 ring-amber-400">
+                            <div class="absolute top-0 right-0 bg-brand-green text-white text-[10px] font-bold px-2.5 py-1 rounded-bl">POPULAR</div>
+                            <div>
+                                <h3 class="font-bold text-brand-blue text-base">Madhuraa Diabetic Checkup</h3>
+                                <p class="text-xs text-slate-500 font-semibold mb-2">32 Tests Included</p>
+                                <p class="text-xs text-slate-600 mb-3">Mini Checkup Plus (29 Tests) + <b>HbA1c (3 Month Average Sugar - 3 Tests)</b></p>
+                            </div>
+                            <div class="pt-2 border-t border-slate-100 flex justify-between items-end">
+                                <div>
+                                    <span class="line-through text-slate-400 text-xs">₹1,500</span>
+                                    <span class="text-xl font-extrabold text-brand-green ml-1">₹750</span>
+                                </div>
+                                <button onclick="bookSpecificPackage('Madhuraa Diabetic Checkup (32 Tests) - ₹750')" class="bg-brand-green text-white text-xs font-bold px-3 py-1.5 rounded hover:bg-emerald-800 transition">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- CARD 4 -->
+                        <div class="bg-white rounded-xl p-4 border border-amber-200 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-bl">SUPER VALUE</div>
+                            <div>
+                                <h3 class="font-bold text-brand-blue text-base">Madhuraa Supreme Package</h3>
+                                <p class="text-xs text-slate-500 font-semibold mb-2">64 Tests Included</p>
+                                <p class="text-xs text-slate-600 mb-3">Sugar, HbA1c, CBC, Lipid Profile (9), LFT (12), KFT (7), Thyroid TSH, Iron Profile (4), Calcium, ESR, Urine.</p>
+                            </div>
+                            <div class="pt-2 border-t border-slate-100 flex justify-between items-end">
+                                <div>
+                                    <span class="line-through text-slate-400 text-xs">₹3,750</span>
+                                    <span class="text-xl font-extrabold text-brand-green ml-1">₹1,799</span>
+                                </div>
+                                <button onclick="bookSpecificPackage('Madhuraa Supreme Package (64 Tests) - ₹1799')" class="bg-brand-blue text-white text-xs font-bold px-3 py-1.5 rounded hover:bg-slate-800 transition">
+                                    Book Now
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ULTIMA & ECG DOORSTEP SPECIAL BANNER -->
+                    <div class="mt-4 bg-gradient-to-r from-brand-darkblue to-blue-900 text-white p-4 rounded-xl flex flex-col md:flex-row justify-between items-center gap-4 border border-blue-700">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-amber-400 text-slate-900 rounded-full flex items-center justify-center font-black text-xl shrink-0">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <div>
+                                <span class="text-amber-300 text-xs font-bold uppercase tracking-wider">Ultimate Health Screening</span>
+                                <h4 class="font-bold text-base md:text-lg">Madhuraa Ultima Package (90 Tests) & Doorstep ECG Service</h4>
+                                <p class="text-xs text-slate-200">Supreme Package (64) + Vitamin D + Vitamin B12 + Electrolytes + eGFR + Complete Urine Examination for <b>₹2,799</b> (Was ₹7,500). Doorstep ECG Report in 15 mins at <b>₹350 / ₹400</b>.</p>
+                            </div>
+                        </div>
+                        <button onclick="bookSpecificPackage('Madhuraa Ultima Package (90 Tests) - ₹2799')" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold text-xs md:text-sm px-5 py-2.5 rounded-lg shrink-0 transition shadow">
+                            Book Ultima Package
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SERVICE LOCATION & COVERAGE RADIUS (STRICT COMPLIANCE WITH USER LOCATIONS) -->
+            <section class="py-12 bg-white">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center max-w-3xl mx-auto mb-8">
+                        <span class="bg-green-100 text-brand-green text-xs font-extrabold px-3 py-1 rounded-full uppercase" 
+                              data-en="Coverage Map" data-ta="சேவை எல்லை மண்டலங்கள்">சேவை எல்லை மண்டலங்கள்</span>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-darkblue mt-2" 
+                            data-en="Regional Service Zones & Mobile Collection Network"
+                            data-ta="எங்கள் சேவை பகுதிகள் மற்றும் கிராமப்புற மாதிரி சேகரிப்பு">
+                            எங்கள் சேவை பகுதிகள் மற்றும் கிராமப்புற மாதிரி சேகரிப்பு
+                        </h2>
+                        <p class="text-slate-600 text-sm mt-1"
+                           data-en="We bring high-quality diagnostic sample collection right to your doorstep across Rajapalayam & Sivagiri hubs."
+                           data-ta="இராஜபாளையம் மற்றும் சிவகிரி மையங்களைச் சுற்றியுள்ள பகுதிகளுக்கு மாதிரி சேகரிப்பு சேவை வழங்கப்படும்.">
+                            இராஜபாளையம் மற்றும் சிவகிரி மையங்களைச் சுற்றியுள்ள பகுதிகளுக்கு மாதிரி சேகரிப்பு சேவை வழங்கப்படும்.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- ZONE 1: PRIMARY HUBS -->
+                        <div class="bg-emerald-50/60 border-2 border-emerald-300 rounded-2xl p-6 shadow-sm relative">
+                            <div class="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold mb-4 shadow">
+                                🟢
+                            </div>
+                            <h3 class="font-extrabold text-lg text-slate-900" data-en="Primary Service Hubs" data-ta="முதன்மை சேவை மையங்கள்">முதன்மை சேவை மையங்கள்</h3>
+                            <p class="text-xs text-emerald-800 font-medium mb-3" data-en="Main Hubs - Instant Pickup" data-ta="உடனடி மாதிரி சேகரிப்பு மையங்கள்">உடனடி மாதிரி சேகரிப்பு மையங்கள்</p>
+                            <ul class="space-y-2 text-sm font-bold text-slate-800">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-emerald-600"></i> Rajapalayam (இராஜபாளையம்)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-emerald-600"></i> Sivagiri (சிவக்கிரி)</li>
+                            </ul>
+                            <div class="mt-4 pt-3 border-t border-emerald-200 text-xs text-slate-600">
+                                <span class="font-semibold text-emerald-900">Doorstep Collection:</span> Guaranteed same-day slot.
+                            </div>
+                        </div>
+
+                        <!-- ZONE 2: SECONDARY SERVICE ZONES -->
+                        <div class="bg-sky-50/60 border-2 border-sky-300 rounded-2xl p-6 shadow-sm">
+                            <div class="w-10 h-10 bg-sky-600 text-white rounded-xl flex items-center justify-center font-bold mb-4 shadow">
+                                🔵
+                            </div>
+                            <h3 class="font-extrabold text-lg text-slate-900" data-en="Secondary Service Towns" data-ta="இரண்டாம் நிலை சேவை நகரங்கள்">இரண்டாம் நிலை சேவை நகரங்கள்</h3>
+                            <p class="text-xs text-sky-800 font-medium mb-3" data-en="Regular Daily Route Support" data-ta="தினசரி சேவை வழித்தடங்கள்">தினசரி சேவை வழித்தடங்கள்</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
+                                <div>• Rayagiri (ராயகிரி)</div>
+                                <div>• Vasudevanallur</div>
+                                <div>• Thalavaipuram</div>
+                                <div>• Seithur (சேத்தூர்)</div>
+                                <div>• Chathirapatti</div>
+                                <div>• Attaimill Road</div>
+                                <div>• Muthugudi</div>
+                                <div>• Solapuram / Murambu</div>
+                                <div class="col-span-2">• Karivalamvandanallur</div>
+                            </div>
+                        </div>
+
+                        <!-- ZONE 3: SURROUNDING VILLAGES MOBILE UNIT -->
+                        <div class="bg-amber-50/60 border-2 border-amber-300 rounded-2xl p-6 shadow-sm">
+                            <div class="w-10 h-10 bg-amber-500 text-white rounded-xl flex items-center justify-center font-bold mb-4 shadow">
+                                🟡
+                            </div>
+                            <h3 class="font-extrabold text-lg text-slate-900" data-en="Surrounding Villages" data-ta="சுற்றியுள்ள கிராமங்கள்">சுற்றியுள்ள கிராமங்கள்</h3>
+                            <p class="text-xs text-amber-800 font-medium mb-3" data-en="Mobile Unit - On Request & Route" data-ta="மொபைல் யூனிட் - கோரிக்கையின் பேரில்">மொபைல் யூனிட் - கோரிக்கையின் பேரில்</p>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                Mobile sample collection team operates on route availability covering surrounding villages around Rajapalayam, Sivagiri, Vasudevanallur & Rayagiri.
+                            </p>
+                            <a href="https://wa.me/919342627757?text=Hi,%20I%20am%20from%20village%20area.%20Is%20mobile%20sample%20collection%20available?" target="_blank"
+                               class="inline-flex items-center gap-1.5 text-xs font-bold bg-amber-500 text-slate-900 px-3 py-2 rounded-lg hover:bg-amber-600 transition">
+                                <i class="fa-brands fa-whatsapp"></i> Check Village Route
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHY CHOOSE MADHURAA DIAGNOSTICS (PILLARS) -->
+            <section class="py-12 bg-slate-100">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-brand-darkblue"
+                            data-en="Why Regional Families Trust Madhuraa Labs"
+                            data-ta="மதுரா டயக்னாஸ்டிக்ஸை ஏன் தேர்வு செய்ய வேண்டும்?">
+                            மதுரா டயக்னாஸ்டிக்ஸை ஏன் தேர்வு செய்ய வேண்டும்?
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 text-center hover:-translate-y-1 transition">
+                            <div class="w-12 h-12 bg-blue-100 text-brand-blue rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                                <i class="fa-solid fa-microscope"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base mb-1" data-en="Quality & Precision" data-ta="துல்லியமான சோதனைகள்">துல்லியமான சோதனைகள்</h3>
+                            <p class="text-xs text-slate-600" data-en="Standardized diagnostic protocols and rigorous quality controls for reliable reports." data-ta="துல்லியமான பரிசோதனை முடிவுகள் மற்றும் தரக்கட்டுப்பாடு.">துல்லியமான பரிசோதனை முடிவுகள் மற்றும் தரக்கட்டுப்பாடு.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 text-center hover:-translate-y-1 transition">
+                            <div class="w-12 h-12 bg-green-100 text-brand-green rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                                <i class="fa-solid fa-house-medical"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base mb-1" data-en="Doorstep Sample Collection" data-ta="வீடே தேடி வரும் சேவை">வீடே தேடி வரும் சேவை</h3>
+                            <p class="text-xs text-slate-600" data-en="Professional phlebotomists collecting blood samples safely from your home." data-ta="பாதுகாப்பான முறையில் உங்கள் வீட்டில் இரத்த மாதிரி சேகரிப்பு.">பாதுகாப்பான முறையில் உங்கள் வீட்டில் இரத்த மாதிரி சேகரிப்பு.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 text-center hover:-translate-y-1 transition">
+                            <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                                <i class="fa-solid fa-indian-rupee-sign"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base mb-1" data-en="Affordable Regional Rates" data-ta="நியாயமான கட்டணம்">நியாயமான கட்டணம்</h3>
+                            <p class="text-xs text-slate-600" data-en="Brochure discounts & packages designed specifically for rural and semi-urban affordability." data-ta="அனைத்து மக்களுக்கும் ஏற்ற வகையில் குறைந்த பரிசோதனை கட்டணம்.">அனைத்து மக்களுக்கும் ஏற்ற வகையில் குறைந்த பரிசோதனை கட்டணம்.</p>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 text-center hover:-translate-y-1 transition">
+                            <div class="w-12 h-12 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-base mb-1" data-en="Same-Day TAT Reports" data-ta="வேகமான முடிவுகள்">வேகமான முடிவுகள்</h3>
+                            <p class="text-xs text-slate-600" data-en="Fast turnaround times with digital WhatsApp & PDF delivery." data-ta="அன்றே வாட்ஸ்அப் வழியாக டிஜிட்டல் ரிப்போர்ட் பெறும் வசதி.">அன்றே வாட்ஸ்அப் வழியாக டிஜிட்டல் ரிப்போர்ட் பெறும் வசதி.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+        <!-- ================= PAGE 2: ALL TESTS DIRECTORY ================= -->
+        <div id="page-tests" class="tab-content">
+            <section class="py-8 bg-slate-50 min-h-screen">
+                <div class="max-w-7xl mx-auto px-4">
+                    
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase text-brand-green tracking-wider">Complete Price List</span>
+                            <h1 class="text-2xl md:text-3xl font-extrabold text-brand-darkblue" data-en="All Laboratory Tests & Rates" data-ta="அனைத்து இரத்தப் பரிசோதனைகள் & கட்டண விவரங்கள்">அனைத்து இரத்தப் பரிசோதனைகள் & கட்டண விவரங்கள்</h1>
+                            <p class="text-xs text-slate-500" data-en="Click on any Profile Test (e.g. LFT, KFT, Lipid, CBC) to view complete sub-tests and preparation details." data-ta="ஒரு குறிப்பிட்ட பரிசோதனையை க்ளிக் செய்து அதன் முழு விவரங்கள் மற்றும் தயாரிப்பு முறைகளைக் காணவும்.">ஒரு குறிப்பிட்ட பரிசோதனையை க்ளிக் செய்து அதன் முழு விவரங்கள் மற்றும் தயாரிப்பு முறைகளைக் காணவும்.</p>
+                        </div>
+
+                        <!-- SEARCH BAR & CATEGORY FILTER -->
+                        <div class="w-full md:w-auto flex flex-col sm:flex-row gap-2">
+                            <input type="text" id="testDirectorySearch" onkeyup="filterTestDirectory()" 
+                                   placeholder="Search by test name (e.g., LFT, Sugar)..." 
+                                   class="px-4 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-blue outline-none w-full md:w-64">
+                            <select id="categoryFilter" onchange="filterTestDirectory()" class="px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-brand-blue outline-none">
+                                <option value="all">All Departments</option>
+                                <option value="haematology">Haematology</option>
+                                <option value="biochemistry">Bio-Chemistry</option>
+                                <option value="thyroid">Thyroid & Hormones</option>
+                                <option value="profiles">Profiles & Packages</option>
+                                <option value="serology">Serology & Infection</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- TESTS TABLE / CARDS CONTAINER -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse" id="testsTable">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-700 text-xs uppercase font-extrabold border-b border-slate-200">
+                                        <th class="py-3.5 px-4">Test Name / Profile</th>
+                                        <th class="py-3.5 px-4">Department</th>
+                                        <th class="py-3.5 px-4">Container / Specimen</th>
+                                        <th class="py-3.5 px-4">TAT (Turnaround Time)</th>
+                                        <th class="py-3.5 px-4 text-right">Offer Price</th>
+                                        <th class="py-3.5 px-4 text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-sm font-medium text-slate-800" id="testsTableBody">
+                                    <!-- Dynamic Population via Javascript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 3: NCD ADVICE & HEALTH PACKAGES ================= -->
+        <div id="page-packages" class="tab-content">
+            <section class="py-10 bg-slate-50">
+                <div class="max-w-7xl mx-auto px-4">
+                    
+                    <div class="text-center max-w-3xl mx-auto mb-10">
+                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Non-Communicable Diseases (NCD) Protocol</span>
+                        <h1 class="text-2xl md:text-4xl font-extrabold text-brand-darkblue mt-2" data-en="NCD Clinical Advice & Preventive Care" data-ta="தொற்றா நோய்கள் (NCD) விழிப்புணர்வு & பரிசோதனைகள்">தொற்றா நோய்கள் (NCD) விழிப்புணர்வு & பரிசோதனைகள்</h1>
+                        <p class="text-slate-600 text-sm mt-2 leading-relaxed"
+                           data-en="Diabetes, Hypertension, Fatty Liver, Thyroid, and Kidney conditions require routine biochemical monitoring to prevent long-term complications."
+                           data-ta="சர்க்கரை நோய், உயர் இரத்த அழுத்தம், தைராய்டு, இதயம் மற்றும் சிறுநீரக பாதிப்புகளை ஆரம்பத்திலேயே கண்டறிய கிளினிக்கல் வழிகாட்டுதல்கள்.">
+                            சர்க்கரை நோய், உயர் இரத்த அழுத்தம், தைராய்டு, இதயம் மற்றும் சிறுநீரக பாதிப்புகளை ஆரம்பத்திலேயே கண்டறிய கிளினிக்கல் வழிகாட்டுதல்கள்.
+                        </p>
+                    </div>
+
+                    <!-- NCD CLINICAL CARDS -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        
+                        <!-- DIABETES & METABOLIC -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-red-100 text-red-600 rounded-xl flex items-center justify-center font-bold text-xl">
+                                        <i class="fa-solid fa-droplet"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-extrabold text-lg text-slate-900">1. Diabetes Mellitus Management</h3>
+                                        <span class="text-xs text-slate-500">Glycemic Control & Organ Protection</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                    A single fasting sugar test is not enough. Routine monitoring of <b>HbA1c (3-month average sugar)</b> along with Microalbuminuria is essential to protect kidneys and eyes from diabetic damage.
+                                </p>
+                                <div class="bg-red-50 p-3 rounded-xl text-xs space-y-1 mb-4">
+                                    <div class="font-bold text-red-900">Recommended Routine Screening:</div>
+                                    <div>• Fasting Blood Sugar (FBS) & Post Prandial (PPBS)</div>
+                                    <div>• HbA1c (3 Months Average)</div>
+                                    <div>• Urine Microalbumin / Creatinine Ratio</div>
+                                </div>
+                            </div>
+                            <button onclick="bookSpecificPackage('Madhuraa Diabetic Checkup (32 Tests) - ₹750')" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+                                Book Diabetic Checkup (₹750)
+                            </button>
+                        </div>
+
+                        <!-- CARDIAC & HYPERTENSION -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl">
+                                        <i class="fa-solid fa-heart-pulse"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-extrabold text-lg text-slate-900">2. Hypertension & Lipid Care</h3>
+                                        <span class="text-xs text-slate-500">Cardiovascular Risk Assessment</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                    High Blood Pressure combined with elevated LDL Cholesterol significantly increases arterial blockage risks. Complete Lipid Profile measures Total Cholesterol, HDL, LDL, VLDL & Triglycerides.
+                                </p>
+                                <div class="bg-blue-50 p-3 rounded-xl text-xs space-y-1 mb-4">
+                                    <div class="font-bold text-blue-900">Recommended Routine Screening:</div>
+                                    <div>• Lipid Profile (9 Parameters)</div>
+                                    <div>• Doorstep ECG Recording</div>
+                                    <div>• Serum Electrolytes (Sodium, Potassium, Chloride)</div>
+                                </div>
+                            </div>
+                            <button onclick="bookSpecificPackage('Lipid Profile + ECG - ₹500')" class="w-full bg-brand-blue hover:bg-blue-900 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+                                Book Lipid & ECG Combo
+                            </button>
+                        </div>
+
+                        <!-- LIVER & FATTY LIVER -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center font-bold text-xl">
+                                        <i class="fa-solid fa-capsules"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-extrabold text-lg text-slate-900">3. Fatty Liver & Hepatic Health</h3>
+                                        <span class="text-xs text-slate-500">LFT & Enzyme Monitoring</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                    Non-Alcoholic Fatty Liver Disease (NAFLD) is rising rapidly. Liver Function Test (LFT) checks SGOT, SGPT, Bilirubin, Alkaline Phosphatase and Albumin levels.
+                                </p>
+                            </div>
+                            <button onclick="openProfileModal('lft')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+                                View LFT Test Details
+                            </button>
+                        </div>
+
+                        <!-- THYROID & HORMONAL -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-purple-100 text-purple-700 rounded-xl flex items-center justify-center font-bold text-xl">
+                                        <i class="fa-solid fa-dna"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-extrabold text-lg text-slate-900">4. Thyroid Disorder & Fatigue</h3>
+                                        <span class="text-xs text-slate-500">TSH & Metabolic Regulation</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                    Unexplained weight changes, tiredness, or hair fall can stem from Hypothyroidism or Hyperthyroidism. TSH / Total Thyroid Profile helps evaluate gland activity.
+                                </p>
+                            </div>
+                            <button onclick="openProfileModal('thyroid')" class="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-2.5 rounded-xl text-xs transition shadow">
+                                View Thyroid Test Details
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 4: UPLOAD PRESCRIPTION ================= -->
+        <div id="page-prescription" class="tab-content">
+            <section class="py-12 bg-slate-50">
+                <div class="max-w-3xl mx-auto px-4">
+                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-md">
+                        <div class="text-center mb-6">
+                            <div class="w-14 h-14 bg-green-100 text-brand-green rounded-full flex items-center justify-center text-2xl mx-auto mb-3">
+                                <i class="fa-solid fa-file-prescription"></i>
+                            </div>
+                            <h1 class="text-2xl font-extrabold text-brand-darkblue" data-en="Upload Doctor's Prescription" data-ta="மருத்துவரின் சீட்டை அனுப்பவும்">மருத்துவரின் சீட்டை அனுப்பவும்</h1>
+                            <p class="text-xs text-slate-500 mt-1"
+                               data-en="Don't know which tests were prescribed? Simply upload or photo your doctor note and our lab team will assist you via WhatsApp."
+                               data-ta="உங்களுக்கு என்னென்ன சோதனைகள் எழுதப்பட்டுள்ளன என்று தெரியவில்லையா? மருத்துவரின் சீட்டை போட்டோ எடுத்து அனுப்பவும்.">
+                                உங்களுக்கு என்னென்ன சோதனைகள் எழுதப்பட்டுள்ளன என்று தெரியவில்லையா? மருத்துவரின் சீட்டை போட்டோ எடுத்து அனுப்பவும்.
+                            </p>
+                        </div>
+
+                        <form id="prescriptionForm" onsubmit="handlePrescriptionSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Patient Full Name / பெயர் *</label>
+                                <input type="text" id="pName" required placeholder="e.g. Vasanthan P" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-blue outline-none">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number / போன் எண் *</label>
+                                    <input type="tel" id="pPhone" required placeholder="e.g. 9342627757" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-blue outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Location / ஊர் *</label>
+                                    <select id="pLocation" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-medium focus:ring-2 focus:ring-brand-blue outline-none">
+                                        <option value="Rajapalayam">Rajapalayam (இராஜபாளையம்)</option>
+                                        <option value="Sivagiri">Sivagiri (சிவக்கிரி)</option>
+                                        <option value="Rayagiri">Rayagiri (ராயகிரி)</option>
+                                        <option value="Vasudevanallur">Vasudevanallur</option>
+                                        <option value="Other Village">Surrounding Village (கிராமம்)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Attach Doctor Slip Photo (Optional Note)</label>
+                                <div class="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center bg-slate-50 hover:bg-slate-100 transition cursor-pointer">
+                                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-brand-blue mb-2"></i>
+                                    <p class="text-xs text-slate-600 font-medium">Click to select photo or take picture from camera</p>
+                                    <input type="file" accept="image/*,.pdf" class="hidden" id="fileInput" onchange="updateFileName(this)">
+                                    <span id="fileNameDisplay" class="text-xs text-brand-green font-bold block mt-2"></span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-green hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span data-en="Send Prescription via WhatsApp" data-ta="வாட்ஸ்அப் மூலம் சீட் அனுப்பவும்">வாட்ஸ்அப் மூலம் சீட் அனுப்பவும்</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 5: CONTACT & B2B PARTNER ================= -->
+        <div id="page-contact" class="tab-content">
+            <section class="py-10 bg-slate-50">
+                <div class="max-w-7xl mx-auto px-4">
+                    
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="bg-blue-100 text-brand-blue text-xs font-extrabold px-3 py-1 rounded-full uppercase">Lab Network & Outsource Processing</span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold text-brand-darkblue mt-2" data-en="Contact Us & B2B Partner Portal" data-ta="தொடர்பு கொள்ள & B2B பார்ட்னர்ஷிப்">தொடர்பு கொள்ள & B2B பார்ட்னர்ஷிப்</h1>
+                        <p class="text-slate-600 text-sm mt-1" data-en="Serving Patients, Hospitals, and Regional Labs across Virudhunagar & Tenkasi districts." data-ta="நோயாளி சேவைகள் மற்றும் மருத்துவமனைகள் / லேப்களுக்கான B2B சேவைகள்.">நோயாளி சேவைகள் மற்றும் மருத்துவமனைகள் / லேப்களுக்கான B2B சேவைகள்.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        
+                        <!-- SIVAGIRI HUB CARD -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-brand-blue text-white text-[10px] font-bold px-3 py-1 rounded-bl">SIVAGIRI BRANCH</div>
+                            <h3 class="font-extrabold text-xl text-slate-900 mb-2">Madhuraa Diagnostics - Sivagiri</h3>
+                            <p class="text-xs text-slate-600 mb-4 flex items-start gap-2">
+                                <i class="fa-solid fa-location-dot text-red-500 mt-1"></i>
+                                <span>19/3 Nethaji Street, Opp. Viveka School, Sivagiri - 627757, Dist. Tenkasi, Tamil Nadu.</span>
+                            </p>
+                            <div class="space-y-2 text-xs font-semibold text-slate-700">
+                                <div><i class="fa-solid fa-phone text-brand-blue mr-2"></i> Landline: 04636 - 290648</div>
+                                <div><i class="fa-brands fa-whatsapp text-green-600 mr-2"></i> Mobile: +91 93426 27757</div>
+                                <div><i class="fa-solid fa-envelope text-amber-600 mr-2"></i> Email: madhuraalab@gmail.com</div>
+                            </div>
+                        </div>
+
+                        <!-- RAJAPALAYAM HUB CARD -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-brand-green text-white text-[10px] font-bold px-3 py-1 rounded-bl">RAJAPALAYAM BRANCH</div>
+                            <h3 class="font-extrabold text-xl text-slate-900 mb-2">Madhuraa Diagnostics - Rajapalayam</h3>
+                            <p class="text-xs text-slate-600 mb-4 flex items-start gap-2">
+                                <i class="fa-solid fa-location-dot text-red-500 mt-1"></i>
+                                <span>Ambalapuli Bazar, Sathish Complex, Rajapalayam - 626117, Dist. Virudhunagar, Tamil Nadu.</span>
+                            </p>
+                            <div class="space-y-2 text-xs font-semibold text-slate-700">
+                                <div><i class="fa-solid fa-phone text-brand-blue mr-2"></i> Landline: 04636 - 290648</div>
+                                <div><i class="fa-brands fa-whatsapp text-green-600 mr-2"></i> Mobile: +91 93426 27757</div>
+                                <div><i class="fa-solid fa-envelope text-amber-600 mr-2"></i> Email: madhuraalab@gmail.com</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- B2B REFERRAL SECTION FOR HOSPITALS & SMALL LABS ONLY -->
+                    <div class="bg-gradient-to-r from-slate-900 via-brand-darkblue to-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-xl border border-slate-800">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                            <div class="md:col-span-8 space-y-3">
+                                <span class="bg-amber-400 text-slate-900 text-[10px] font-extrabold px-2.5 py-1 rounded uppercase">Hospitals & Labs Partner Portal</span>
+                                <h2 class="text-xl md:text-2xl font-extrabold text-white">B2B Sample Processing & Referral Services</h2>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    We offer specialized B2B sample processing support for local hospitals and smaller regional diagnostic labs. Streamlined logistics, quick turnaround, and confidential electronic reporting.
+                                </p>
+                            </div>
+                            <div class="md:col-span-4 flex justify-start md:justify-end">
+                                <a href="https://wa.me/919342627757?text=Hi%20Madhuraa%20Lab,%20I%20am%20interested%20in%20B2B%20Hospital/Lab%20Sample%20Outsource%20Partnership." target="_blank"
+                                   class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold text-xs px-5 py-3 rounded-xl transition shadow flex items-center gap-2">
+                                    <i class="fa-solid fa-handshake"></i> Partner With Us (B2B)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-brand-darkblue text-white py-8 border-t border-blue-900">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
+            <div>
+                <span class="font-bold text-base text-white block mb-1">MADHURAA DIAGNOSTICS</span>
+                <p class="leading-relaxed">A Clinical Laboratory & Regional Sample Collection Hub operating across Rajapalayam & Sivagiri.</p>
+                <p class="mt-2 text-[11px] text-slate-400">© 2026 Madhuraa Diagnostics. All Rights Reserved.</p>
+            </div>
+            <div>
+                <span class="font-bold text-sm text-white block mb-2">Quick Navigation</span>
+                <ul class="space-y-1">
+                    <li><a href="javascript:void(0)" onclick="switchTab('home')" class="hover:text-amber-400 transition">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchTab('tests')" class="hover:text-amber-400 transition">All Tests & Rates</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchTab('packages')" class="hover:text-amber-400 transition">NCD Care & Packages</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchTab('contact')" class="hover:text-amber-400 transition">B2B Lab Partnership</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="font-bold text-sm text-white block mb-2">Official Contacts</span>
+                <p>Phone: 04636-290648</p>
+                <p>WhatsApp: +91 93426 27757</p>
+                <p>Email: madhuraalab@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE PROFILE TEST MODAL (LFT, KFT, LIPID, THYROID, ETC.) -->
+    <div id="profileModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl transform transition-all">
+            <div class="bg-brand-darkblue text-white px-5 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-vial-circle-check text-amber-400 text-lg"></i>
+                    <h3 class="font-bold text-base" id="modalTitle">Profile Details</h3>
+                </div>
+                <button onclick="closeProfileModal()" class="text-slate-300 hover:text-white text-xl font-bold">&times;</button>
+            </div>
+            
+            <div class="p-5 text-slate-800 space-y-4 max-h-[80vh] overflow-y-auto" id="modalBody">
+                <!-- Dynamic Content via JavaScript -->
+            </div>
+
+            <div class="bg-slate-100 px-5 py-3 flex justify-between items-center border-t border-slate-200">
+                <span class="text-xs text-slate-500 font-medium">Madhuraa Lab Quality Standard</span>
+                <button onclick="bookModalTest()" class="bg-brand-green hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2 rounded-lg transition shadow">
+                    Book This Test via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZERO-COST OFFLINE / BUILT-IN SMART CHATBOT WIDGET -->
+    <div class="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-40">
+        <!-- CHATBOT TOGGLE BUTTON -->
+        <button onclick="toggleChatbot()" class="w-14 h-14 bg-brand-green text-white rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition border-2 border-white">
+            <i class="fa-solid fa-comments"></i>
+        </button>
+
+        <!-- CHATBOT WINDOW -->
+        <div id="chatbotWindow" class="hidden absolute bottom-16 right-0 w-80 md:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col h-96">
+            <!-- CHAT HEADER -->
+            <div class="bg-brand-darkblue text-white p-3.5 flex justify-between items-center">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 bg-amber-400 text-slate-900 rounded-full flex items-center justify-center font-bold text-xs">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xs">Madhuraa Lab Assistant</h4>
+                        <span class="text-[10px] text-green-300 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-ping"></span> 24/7 Automated Help
+                        </span>
+                    </div>
+                </div>
+                <button onclick="toggleChatbot()" class="text-slate-300 hover:text-white">&times;</button>
+            </div>
+
+            <!-- CHAT MESSAGES CONTAINER -->
+            <div id="chatMessages" class="flex-grow p-3 overflow-y-auto space-y-3 bg-slate-50 text-xs">
+                <div class="bg-blue-100 text-slate-800 p-2.5 rounded-xl rounded-tl-none max-w-[85%] leading-relaxed">
+                    👋 வணக்கம்! மதுரா டயக்னாஸ்டிக்ஸ். உங்களுக்கு என்ன விவரங்கள் வேண்டும்? கீழே உள்ள விருப்பங்களைத் தேர்ந்தெடுக்கவும்:
+                </div>
+            </div>
+
+            <!-- CHAT OPTIONS / QUICK BUTTONS -->
+            <div class="p-2 bg-white border-t border-slate-200 grid grid-cols-2 gap-1.5 text-[11px]">
+                <button onclick="sendChatQuery('prices')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold p-1.5 rounded text-left border">🧪 Test Prices</button>
+                <button onclick="sendChatQuery('pickup')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold p-1.5 rounded text-left border">🏠 Home Pickup</button>
+                <button onclick="sendChatQuery('fasting')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold p-1.5 rounded text-left border">⏰ Fasting Rules</button>
+                <button onclick="sendChatQuery('ncd')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold p-1.5 rounded text-left border">❤️ NCD Packages</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT APPLICATION ENGINE -->
+    <script>
+        // GLOBAL DATA STRUCTURE FOR TESTS
+        const testDatabase = [
+            { id: 'cbc', name: 'Complete Blood Count (CBC)', dept: 'haematology', container: 'EDTA Purple Top', tat: 'Same Day', price: 250, isProfile: true },
+            { id: 'lft', name: 'Liver Function Test (LFT)', dept: 'biochemistry', container: 'Serum Yellow Top', tat: 'Same Day', price: 450, isProfile: true },
+            { id: 'kft', name: 'Kidney Function Test (KFT)', dept: 'biochemistry', container: 'Serum Yellow Top', tat: 'Same Day', price: 400, isProfile: true },
+            { id: 'lipid', name: 'Lipid Profile (Cholesterol)', dept: 'biochemistry', container: 'Serum Yellow Top', tat: 'Same Day', price: 350, isProfile: true },
+            { id: 'thyroid', name: 'Thyroid Stimulating Hormone (TSH)', dept: 'thyroid', container: 'Serum Yellow Top', tat: 'Same Day', price: 200, isProfile: true },
+            { id: 'fbs', name: 'Fasting Blood Sugar (FBS)', dept: 'biochemistry', container: 'Fluoride Grey Top', tat: '2 Hours', price: 50, isProfile: false },
+            { id: 'ppbs', name: 'Post Prandial Sugar (PPBS)', dept: 'biochemistry', container: 'Fluoride Grey Top', tat: '2 Hours', price: 50, isProfile: false },
+            { id: 'hba1c', name: 'HbA1c (3 Month Average Sugar)', dept: 'biochemistry', container: 'EDTA Purple Top', tat: 'Same Day', price: 300, isProfile: false },
+            { id: 'iron', name: 'Iron Deficiency Profile', dept: 'profiles', container: 'Serum Yellow Top', tat: '1 Day', price: 500, isProfile: true },
+            { id: 'urine', name: 'Urine Routine Examination', dept: 'biochemistry', container: 'Sterile Urine Container', tat: 'Same Day', price: 80, isProfile: true },
+            { id: 'dengue', name: 'Dengue NS1 / IgG IgM', dept: 'serology', container: 'Serum Yellow Top', tat: 'Same Day', price: 600, isProfile: false },
+            { id: 'typhoid', name: 'Widal / Typhoid Test', dept: 'serology', container: 'Serum Yellow Top', tat: 'Same Day', price: 150, isProfile: false },
+            { id: 'ecg', name: 'Doorstep ECG Recording', dept: 'profiles', container: '12-Lead Electrodes', tat: '15 Mins', price: 350, isProfile: false }
+        ];
+
+        // PROFILE DETAILS BREAKDOWN (CLINICAL KNOWLEDGE ENGINE)
+        const profileDetails = {
+            lft: {
+                title: 'Liver Function Test (LFT) - 12 Sub-Tests',
+                subtests: ['Bilirubin Total', 'Bilirubin Direct', 'Bilirubin Indirect', 'SGOT / AST', 'SGPT / ALT', 'Alkaline Phosphatase (ALP)', 'Total Protein', 'Albumin', 'Globulin', 'A/G Ratio', 'GGTP'],
+                prep: '10 to 12 Hours Fasting required. Avoid fatty meals before sample collection.',
+                container: 'Gel / Serum Yellow Top Cap',
+                purpose: 'Evaluates liver inflammation, fatty liver changes, jaundice, and bile duct obstructions.',
+                price: '₹450'
+            },
+            kft: {
+                title: 'Kidney Function Test (KFT / RFT) - 7 Sub-Tests',
+                subtests: ['Serum Creatinine', 'Blood Urea', 'Uric Acid', 'Blood Urea Nitrogen (BUN)', 'BUN/Creatinine Ratio', 'Serum Sodium', 'Serum Potassium'],
+                prep: 'Fasting preferred. Drink normal water.',
+                container: 'Serum Yellow Top Cap',
+                purpose: 'Monitors renal filtration efficiency, hydration status, and microvascular kidney health.',
+                price: '₹400'
+            },
+            lipid: {
+                title: 'Lipid Profile (Cholesterol Panel) - 9 Sub-Tests',
+                subtests: ['Total Cholesterol', 'Triglycerides', 'HDL (Good Cholesterol)', 'LDL (Bad Cholesterol)', 'VLDL', 'Total / HDL Ratio', 'LDL / HDL Ratio'],
+                prep: '12 Hours Strict Overnight Fasting required.',
+                container: 'Serum Yellow Top Cap',
+                purpose: 'Assesses cardiovascular risk, arterial plaque buildup, and lipid metabolism.',
+                price: '₹350'
+            },
+            cbc: {
+                title: 'Complete Blood Count (CBC) - 21 Parameters',
+                subtests: ['Hemoglobin (Hb)', 'RBC Count', 'WBC Total Count', 'Differential Count (Neutrophils, Lymphocytes, Monocytes, Eosinophils, Basophils)', 'Platelet Count', 'PCV / Hematocrit', 'MCV, MCH, MCHC, RDW'],
+                prep: 'No fasting required. Random sample allowed.',
+                container: 'EDTA K2 Purple Top Cap',
+                purpose: 'Detects anemia, viral/bacterial infections, low platelet counts, and bleeding disorders.',
+                price: '₹250'
+            },
+            thyroid: {
+                title: 'Thyroid Function Panel / TSH',
+                subtests: ['Thyroid Stimulating Hormone (TSH)', 'Total T3 (Optional)', 'Total T4 (Optional)'],
+                prep: 'Morning sample recommended before thyroid medication.',
+                container: 'Serum Yellow Top Cap',
+                purpose: 'Evaluates metabolic rate, hypothyroidism, hyperthyroidism, and fatigue causes.',
+                price: '₹200'
+            },
+            iron: {
+                title: 'Iron Deficiency Profile - 4 Parameters',
+                subtests: ['Serum Iron', 'Total Iron Binding Capacity (TIBC)', '% Transferrin Saturation', 'Serum Ferritin'],
+                prep: '10 Hours Fasting required.',
+                container: 'Serum Yellow Top Cap',
+                purpose: 'Diagnoses microcytic anemia, iron storage depletion, and chronic fatigue.',
+                price: '₹500'
+            },
+            urine: {
+                title: 'Complete Urine Routine Examination',
+                subtests: ['Physical: Color, Transparency, Specific Gravity', 'Chemical: pH, Sugar, Protein/Albumin, Ketones', 'Microscopic: Pus Cells, Epithelial Cells, RBCs, Casts, Crystals'],
+                prep: 'First morning mid-stream urine sample preferred.',
+                container: 'Sterile Urine Container',
+                purpose: 'Detects urinary tract infection (UTI), kidney disease, and protein leakage.',
+                price: '₹80'
+            }
+        };
+
+        let currentActiveModalTest = '';
+
+        // TAB SWITCHING ENGINE
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('text-brand-blue', 'bg-blue-50');
+                el.classList.add('text-slate-600');
+            });
+
+            document.getElementById('page-' + tabId).classList.add('active');
+            const activeNav = document.getElementById('nav-' + tabId);
+            if(activeNav) {
+                activeNav.classList.add('text-brand-blue', 'bg-blue-50');
+                activeNav.classList.remove('text-slate-600');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // RENDER TEST DIRECTORY TABLE
+        function renderTestsTable(data) {
+            const tbody = document.getElementById('testsTableBody');
+            tbody.innerHTML = '';
+
+            data.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 transition border-b border-slate-100';
+                tr.innerHTML = `
+                    <td class="py-3 px-4">
+                        <div class="font-bold text-slate-900">${item.name}</div>
+                        ${item.isProfile ? `<button onclick="openProfileModal('${item.id}')" class="text-[11px] text-brand-blue underline font-semibold mt-0.5"><i class="fa-solid fa-circle-info mr-1"></i> View Sub-tests & Prep</button>` : ''}
+                    </td>
+                    <td class="py-3 px-4 text-xs font-semibold uppercase text-slate-500">${item.dept}</td>
+                    <td class="py-3 px-4 text-xs text-slate-600">
+                        <span class="bg-slate-100 px-2 py-1 rounded border">${item.container}</span>
+                    </td>
+                    <td class="py-3 px-4 text-xs text-slate-600">${item.tat}</td>
+                    <td class="py-3 px-4 text-right font-extrabold text-brand-green text-base">₹${item.price}</td>
+                    <td class="py-3 px-4 text-center">
+                        <button onclick="bookSpecificPackage('${item.name} - ₹${item.price}')" class="bg-brand-blue hover:bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded transition shadow">
+                            Book
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // FILTER TESTS
+        function filterTestDirectory() {
+            const query = document.getElementById('testDirectorySearch').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+
+            const filtered = testDatabase.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(query) || item.dept.toLowerCase().includes(query);
+                const matchesCategory = (category === 'all') || (item.dept === category);
+                return matchesSearch && matchesCategory;
+            });
+
+            renderTestsTable(filtered);
+        }
+
+        // HERO SEARCH REDIRECT
+        function searchFromHero() {
+            const q = document.getElementById('heroSearchInput').value;
+            switchTab('tests');
+            document.getElementById('testDirectorySearch').value = q;
+            filterTestDirectory();
+        }
+
+        // MODAL ENGINE
+        function openProfileModal(profileKey) {
+            const data = profileDetails[profileKey];
+            if (!data) return;
+
+            currentActiveModalTest = data.title;
+            document.getElementById('modalTitle').innerText = data.title;
+            
+            let subtestListHtml = data.subtests.map(s => `<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-green-600 text-xs"></i> ${s}</li>`).join('');
+
+            document.getElementById('modalBody').innerHTML = `
+                <div>
+                    <h4 class="font-bold text-xs uppercase text-slate-500 mb-1">Included Sub-Tests (${data.subtests.length})</h4>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs font-semibold text-slate-800 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        ${subtestListHtml}
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs uppercase text-slate-500 mb-1">Clinical Significance</h4>
+                    <p class="text-xs text-slate-700 bg-blue-50/50 p-3 rounded-xl border border-blue-100">${data.purpose}</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="bg-amber-50 p-2.5 rounded-xl border border-amber-200">
+                        <span class="font-bold text-amber-900 block mb-0.5">Preparation:</span>
+                        <span class="text-slate-700">${data.prep}</span>
+                    </div>
+                    <div class="bg-purple-50 p-2.5 rounded-xl border border-purple-200">
+                        <span class="font-bold text-purple-900 block mb-0.5">Container Spec:</span>
+                        <span class="text-slate-700">${data.container}</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pt-2">
+                    <span class="text-xs font-bold text-slate-500">Offer Price:</span>
+                    <span class="text-2xl font-black text-brand-green">${data.price}</span>
+                </div>
+            `;
+
+            document.getElementById('profileModal').classList.remove('hidden');
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profileModal').classList.add('hidden');
+        }
+
+        function bookModalTest() {
+            closeProfileModal();
+            bookSpecificPackage(currentActiveModalTest);
+        }
+
+        // WHATSAPP BOOKING HELPER
+        function bookSpecificPackage(packageName) {
+            const message = encodeURIComponent(`Hi Madhuraa Diagnostics, I want to book: ${packageName}. Please confirm home sample pickup schedule.`);
+            window.open(`https://wa.me/919342627757?text=${message}`, '_blank');
+        }
+
+        // PRESCRIPTION FORM SUBMIT
+        function handlePrescriptionSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('pName').value;
+            const phone = document.getElementById('pPhone').value;
+            const location = document.getElementById('pLocation').value;
+
+            const text = encodeURIComponent(`Hi Madhuraa Lab,
+*New Prescription / Test Inquiry*
+Name: ${name}
+Phone: ${phone}
+Location: ${location}
+(Sending prescription photo in next message)`);
+            window.open(`https://wa.me/919342627757?text=${text}`, '_blank');
+        }
+
+        function updateFileName(input) {
+            if(input.files && input.files[0]) {
+                document.getElementById('fileNameDisplay').innerText = "Selected: " + input.files[0].name;
+            }
+        }
+
+        // BILINGUAL ENGINE
+        let currentLang = 'ta'; // default tamil
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ta' : 'en';
+            document.getElementById('langText').innerText = currentLang === 'en' ? 'தமிழ்' : 'English';
+
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) el.innerText = text;
+            });
+        }
+
+        // CHATBOT ENGINE
+        function toggleChatbot() {
+            const win = document.getElementById('chatbotWindow');
+            win.classList.toggle('hidden');
+        }
+
+        function sendChatQuery(type) {
+            const messages = document.getElementById('chatMessages');
+            let userText = '';
+            let replyText = '';
+
+            if (type === 'prices') {
+                userText = 'Test Prices?';
+                replyText = '🧪 Glucose: ₹50 | HbA1c: ₹300 | CBC: ₹250 | LFT: ₹450 | KFT: ₹400 | Lipid: ₹350 | TSH: ₹200. "Tests Directory" பக்கத்தில் மேலும் காணலாம்.';
+            } else if (type === 'pickup') {
+                userText = 'Home Collection?';
+                replyText = '🏠 இராஜபாளையம் மற்றும் சிவகிரியில் இலவச மாதிரி சேகரிப்பு கிடைக்கும்! வாட்ஸ்அப்பில் முகவரியைப் பகிரவும்.';
+            } else if (type === 'fasting') {
+                userText = 'Fasting Rules?';
+                replyText = '⏰ Fasting Sugar, Lipid Profile, LFT பரிசோதனைகளுக்கு 10-12 மணி நேரம் உணவு சாப்பிடாமல் இருக்க வேண்டும்.';
+            } else if (type === 'ncd') {
+                userText = 'NCD Health Packages?';
+                replyText = '❤️ மதுரா மினி ஹெல்த் செக்கப் ₹300, டயபட்டிக் செக்கப் ₹750, சப்ரீம் பேக்கேஜ் ₹1,799.';
+            }
+
+            // Append User Message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'bg-brand-blue text-white p-2 rounded-xl rounded-tr-none ml-auto max-w-[80%] text-right font-medium';
+            userDiv.innerText = userText;
+            messages.appendChild(userDiv);
+
+            // Append Bot Response
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'bg-blue-100 text-slate-800 p-2.5 rounded-xl rounded-tl-none max-w-[85%] leading-relaxed';
+                botDiv.innerText = replyText;
+                messages.appendChild(botDiv);
+                messages.scrollTop = messages.scrollHeight;
+            }, 300);
+        }
+
+        // INITIALIZATION
+        window.onload = function() {
+            renderTestsTable(testDatabase);
+        };
+    </script>
+
+</body>
+</html>
